@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // =============================================
 
 
-const apiKey = 'AIzaSyCUDDcyAIk6wzRBTi-qpB6BmMPWaPX04_o';
+const apiKey = 'AIzaSyBGpmWOJ8SJjdU7pMY8thH2bL0SQWlLSKU';
 const channelId = 'UCgZ0pLZFIKdj6Fj1lHEk3jw';
 
 fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
