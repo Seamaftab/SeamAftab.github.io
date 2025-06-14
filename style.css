@@ -1,0 +1,253 @@
+/* ========================================
+   ✅ Base & Global Styles
+======================================== */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  text-transform: uppercase;
+}
+
+/* ========================================
+   ✅ Navbar
+======================================== */
+
+#navbar {
+  background-color: #000;
+  transition: 0.3s ease;
+}
+
+#navbar.scrolled {
+  opacity: 0.55;
+}
+
+.nav-link.active{
+  border-bottom: 2px solid #0ff;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #fff, 0 0 10px #0ff;
+}
+
+/* ========================================
+   ✅ Hero Section
+======================================== */
+
+.hero {
+  background: linear-gradient(to right, #021945, #000000);
+  position: relative;
+  color: white;
+  height: 110vh;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.typing-carousel {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ddd;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: #0ff;
+  width: 10px;
+  height: 1.4rem;
+  animation: blink 0.7s steps(1) infinite;
+  margin-left: 5px;
+  vertical-align: bottom;
+}
+
+@keyframes blink {
+  50% { background-color: transparent; }
+}
+
+/* ========================================
+   ✅ Sections (About, Projects, Experience, Contact)
+======================================== */
+
+.about-section,
+.experience-section {
+  min-height: 70vh;
+  background-color: #021945;
+  color: white;
+  padding: 60px 20px;
+}
+
+.projects-section,
+.hobbies-section {
+  background-color: #fff;
+  color: #021945;
+  padding: 60px 20px;
+  min-height: 70vh; /* More flexible than fixed height */
+}
+
+.youtube-section {
+  background-color: #bb0000;
+  color: #fff;
+  padding: 60px 20px;
+  min-height: 70vh;
+}
+
+.contact-section {
+  background-color: #fff;
+  color: #021945;
+  padding: 60px 20px;
+  min-height: 80vh;
+}
+
+.footer-section {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Footer Social Icons */
+.footer-section .social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.footer-section .social-icons a:hover {
+  background-color: white;
+  color: #021945; /* or your neon accent color */
+}
+
+
+/* ========================================
+   ✅ Forms
+======================================== */
+
+.contact-section input,
+.contact-section textarea {
+  border: 1px solid #021945;
+}
+
+.submit-btn {
+  background-color: #021945;
+  color: #fff;
+}
+
+/* ========================================
+   ✅ Carousel Controls
+======================================== */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #021945;
+}
+
+.carousel-control-prev {
+  left: -120px; /* Desktop: push more left */
+}
+
+.carousel-control-next {
+  right: -120px; /* Desktop: push more right */
+}
+
+/* ========================================
+   ✅ Carousel Item: Image & Row Layout
+======================================== */
+
+/* Ensure image fills its side and stays neat */
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  max-height: 100%;
+  border-radius: 12px;
+}
+
+/* Consistent slide height and centered content */
+.carousel-inner .row {
+  min-height: 400px;
+}
+
+/* Tech stack icons styling */
+.tech-icons i {
+  font-size: 1.8rem;
+  margin-right: 8px;
+}
+
+/* Mobile hover effect */
+.mobile-thumbnail {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mobile-thumbnail img {
+  transition: filter 0.3s ease;
+}
+
+.mobile-thumbnail .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-thumbnail:hover img {
+  filter: blur(3px);
+}
+
+.mobile-thumbnail:hover .overlay {
+  opacity: 1;
+}
+
+/* ========================================
+   ✅ Responsive Adjustments (Mobile)
+======================================== */
+
+@media (max-width: 768px) {
+  .carousel-control-prev {
+    left: -50px;
+  }
+
+  .carousel-control-next {
+    right: -50px;
+  }
+
+  .carousel-item img {
+    margin-bottom: 20px; /* Adds space below image on mobile view */
+  }
+}
