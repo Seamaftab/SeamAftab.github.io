@@ -194,16 +194,29 @@ document.addEventListener('DOMContentLoaded', () => {
 const apiKey = 'AIzaSyBGpmWOJ8SJjdU7pMY8thH2bL0SQWlLSKU';
 const channelId = 'UCgZ0pLZFIKdj6Fj1lHEk3jw';
 
-fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`)
+fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${channelId}&key=${apiKey}`)
   .then(response => response.json())
   .then(data => {
-  const stats = data.items[0].statistics;
-  const subs = stats.subscriberCount || 1974;
-  const views = stats.viewCount || 1002641;
+    const channel = data.items[0];
+    const stats = channel.statistics || {};
+    const snippet = channel.snippet || {};
 
-  document.getElementById('yt-subs').textContent = Number(subs).toLocaleString();
-  document.getElementById('yt-views').textContent = Number(views).toLocaleString();
-});
+    // ✅ Sub count and views
+    const subs = stats.subscriberCount || 1974;
+    const views = stats.viewCount || 1002641;
+    document.getElementById('yt-subs').textContent = Number(subs).toLocaleString();
+    document.getElementById('yt-views').textContent = Number(views).toLocaleString();
+
+    // ✅ Profile picture
+    if (snippet.thumbnails && snippet.thumbnails.high) {
+      document.getElementById('yt-profile').src = snippet.thumbnails.high.url;
+    }
+  })
+  .catch(error => {
+    console.error('YouTube API error:', error);
+    document.getElementById('yt-subs').textContent = '1,974';
+    document.getElementById('yt-views').textContent = '1,002,641';
+  });
 
 
 
