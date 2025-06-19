@@ -22,7 +22,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-
 // =============================================
 // ✅ Typing effect
 // =============================================
@@ -52,16 +51,19 @@ let letter = "";
 })();
 
 // =============================================
-// ✅ Dynamic GitHub Projects Carousel
+// ✅ GitHub Projects: Featured Carousel + All Projects Modal
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
   const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
+  const allProjectsGrid = document.getElementById('allProjectsGrid');
   carouselInner.innerHTML = '';
+  allProjectsGrid.innerHTML = '';
 
   const githubUsername = 'Seamaftab';
+  const featuredProjects = ["ASHES", "Helmet-Detection-Using-YOLO", "PhoenixRiseHub"];
+  const ignoreProjects = ["seamaftab.github.io"]; // lowercase on purpose!
 
-  // Master icon map to reuse for both desktop & modal
   const techIcons = {
     "python": '<i class="devicon-python-plain colored"></i>',
     "php": '<i class="devicon-php-plain colored"></i>',
@@ -74,149 +76,111 @@ document.addEventListener('DOMContentLoaded', () => {
     "bootstrap": '<i class="devicon-bootstrap-plain colored"></i>',
   };
 
+  const techs = {
+    "ASHES": ["cpp", "ino"],
+    "Helmet-Detection-Using-YOLO": ["python"],
+    "Satellite-Image-Classification": ["python"],
+    "Credit-Management-Telegram-Bot": ["python"],
+    "Affordability_Calculator": ["python"],
+    "PhoenixRiseHub": ["php", "laravel", "css", "js", "html", "bootstrap"],
+    "Electronic_HUT": ["css", "js", "html", "bootstrap"],
+    "DigitalShop": ["php", "laravel", "css", "js", "html", "bootstrap"],
+    "Image-Forgery-Detection-Using-Machine-Learning" : ["python"]
+  };
+
+  const thumbnails = {
+    "ASHES": "images/projects/ashes.png",
+    "Helmet-Detection-Using-YOLO": "images/projects/helmet.png",
+    "Satellite-Image-Classification": "images/projects/satellite.png",
+    "Credit-Management-Telegram-Bot": "images/projects/bot.png",
+    "Affordability_Calculator": "images/projects/calculator.png",
+    "PhoenixRiseHub": "images/projects/phoenix.png",
+    "Electronic_HUT": "images/projects/hut.png",
+    "DigitalShop": "images/projects/digitalshop.png",
+    "Image-Forgery-Detection-Using-Machine-Learning" : "images/projects/forgery.png",
+    "default": "images/projects/default.webp"
+  };
+
   fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated`)
     .then(response => response.json())
     .then(repos => {
-      const techs = {
-        "ASHES": ["cpp", "ino"],
-        "Helmet-Detection-Using-YOLO": ["python"],
-        "Satellite-Image-Classification": ["python"],
-        "Credit-Management-Telegram-Bot": ["python"],
-        "Affordability_Calculator": ["python"],
-        "PhoenixRiseHub": ["php", "laravel", "css", "js", "html", "bootstrap"],
-        "Electronic_HUT": ["css", "js", "html"],
-        "DigitalShop": ["php", "laravel", "css", "js", "html", "bootstrap"]
-      };
+      repos.forEach((repo) => {
+        const repoName = repo.name.toLowerCase();
+        if (ignoreProjects.includes(repoName)) return;
 
-      const thumbnails = {
-        "ASHES": "images/projects/ashes.png",
-        "Helmet-Detection-Using-YOLO": "images/projects/helmet.png",
-        "Satellite-Image-Classification": "images/projects/satellite.png",
-        "Credit-Management-Telegram-Bot": "images/projects/bot.png",
-        "Affordability_Calculator": "images/projects/calculator.png",
-        "PhoenixRiseHub": "images/projects/phoenix.png",
-        "Electronic_HUT": "images/projects/hut.png",
-        "DigitalShop": "images/projects/digitalshop.png",
-        "default": "images/projects/default.webp"
-      };
-
-      repos.forEach((repo, index) => {
-        const item = document.createElement('div');
-        item.classList.add('carousel-item');
-        if (index === 0) item.classList.add('active');
-
+        const isFeatured = featuredProjects.includes(repo.name);
         const thumbnail = thumbnails[repo.name] || thumbnails["default"];
         const projectTechs = techs[repo.name] || [];
         const iconsHTML = projectTechs.map(tech => techIcons[tech] || '').join(' ');
 
-        item.innerHTML = `
-          <!-- ✅ Mobile: clickable thumbnail with SAFE data-techs -->
-          <div class="mobile-thumbnail d-block d-md-none position-relative"
-               data-title="${repo.name.toUpperCase()}"
-               data-techs="${projectTechs.join(',')}"
-               data-description="${repo.description || 'No description provided.'}"
-               data-image="${thumbnail}"
-               data-link="${repo.html_url}">
-            <img src="${thumbnail}" alt="${repo.name}" class="img-fluid w-100 rounded">
-            <div class="overlay">
-              <h3>${repo.name.toUpperCase()}</h3>
-            </div>
-          </div>
+        // ✅ Featured → Carousel
+        if (isFeatured) {
+          const item = document.createElement('div');
+          item.classList.add('carousel-item');
+          if (carouselInner.children.length === 0) item.classList.add('active');
 
-          <!-- ✅ Desktop: split layout with image & icons directly -->
-          <div class="row h-100 align-items-center justify-content-center d-none d-md-flex">
-            <div class="col-md-6 h-100 d-flex align-items-center">
-              <img src="${thumbnail}" alt="${repo.name}" class="img-fluid rounded mx-auto d-block">
+          item.innerHTML = `
+            <div class="mobile-thumbnail d-block d-md-none position-relative"
+              data-title="${repo.name.toUpperCase()}"
+              data-techs="${projectTechs.join(',')}"
+              data-description="${repo.description || 'No description provided.'}"
+              data-image="${thumbnail}"
+              data-link="${repo.html_url}">
+              <img src="${thumbnail}" alt="${repo.name}" class="img-fluid w-100 rounded">
+              <div class="overlay d-flex flex-column">
+                <h3>${repo.name.toUpperCase()}</h3>
+                <div class="tech-icons">${iconsHTML}</div>
+              </div>
             </div>
-            <div class="col-md-6 h-100 d-flex flex-column justify-content-center text-center text-md-start">
-              <h3>${repo.name.toUpperCase()}</h3>
-              <div class="tech-icons">${iconsHTML}</div>
-              <p>${repo.description || 'No description provided.'}</p>
-              <a href="${repo.html_url}" target="_blank" class="btn submit-btn mt-2">View Project</a>
-            </div>
-          </div>
-        `;
+            <div class="row h-100 align-items-center justify-content-center d-none d-md-flex">
+              <div class="col-md-6">
+                <img src="${thumbnail}" alt="${repo.name}" class="img-fluid rounded">
+              </div>
+              <div class="col-md-6 text-center text-md-start">
+                <h3>${repo.name.toUpperCase()}</h3>
+                <div class="tech-icons">${iconsHTML}</div>
+                <p>${repo.description || 'No description provided.'}</p>
+                <a href="${repo.html_url}" target="_blank" class="btn submit-btn mt-2">View Project</a>
+              </div>
+            </div>`;
+          carouselInner.appendChild(item);
+        }
 
-        carouselInner.appendChild(item);
+        // ✅ All Projects → Modal grid
+        const card = document.createElement('div');
+        card.className = 'col-md-4 mb-4';
+        card.innerHTML = `
+          <div class="project-card text-center">
+            <img src="${thumbnail}" alt="${repo.name}">
+            <h5>${repo.name.toUpperCase()}</h5>
+            <div class="tech-icons">${iconsHTML}</div>
+            <p>${repo.description || 'No description provided.'}</p>
+            <a href="${repo.html_url}" target="_blank" class="btn btn-sm submit-btn">View on GitHub</a>
+          </div>`;
+        allProjectsGrid.appendChild(card);
       });
-
-      if (repos.length === 0) {
-        carouselInner.innerHTML = `
-          <div class="carousel-item active">
-            <p>No projects found on GitHub.</p>
-          </div>
-        `;
-      }
     })
-    .catch(error => {
-      console.error('Error fetching repos:', error);
-      carouselInner.innerHTML = `
-        <div class="carousel-item active">
-          <p>Error loading projects.</p>
-        </div>
-      `;
-    });
+    .catch(err => console.error(err));
 
-  // =============================================
-  // ✅ Mobile Thumbnail Click → Open Modal
-  // =============================================
-
-  document.addEventListener('click', function (e) {
+  // ✅ Mobile Thumbnail → Modal
+  document.addEventListener('click', e => {
     const thumb = e.target.closest('.mobile-thumbnail');
     if (!thumb) return;
-
-    const title = thumb.getAttribute('data-title');
-    const techKeys = thumb.getAttribute('data-techs').split(',').filter(Boolean);
-    const description = thumb.getAttribute('data-description');
-    const image = thumb.getAttribute('data-image');
-    const link = thumb.getAttribute('data-link');
-
-    // ✅ Rebuild icons safely for modal
-    const iconsHTML = techKeys.map(tech => techIcons[tech] || '').join(' ');
-
+    const title = thumb.dataset.title;
+    const techKeys = thumb.dataset.techs.split(',');
+    const description = thumb.dataset.description;
+    const image = thumb.dataset.image;
+    const link = thumb.dataset.link;
+    const iconsHTML = techKeys.map(t => techIcons[t] || '').join(' ');
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalIcons').innerHTML = iconsHTML;
     document.getElementById('modalDescription').innerText = description;
     document.getElementById('modalImage').src = image;
     document.getElementById('modalLink').href = link;
-
     const modal = new bootstrap.Modal(document.getElementById('projectModal'));
     modal.show();
   });
-
 });
-
-// =============================================
-// ✅ YouTube
-// =============================================
-
-
-const apiKey = 'AIzaSyBGpmWOJ8SJjdU7pMY8thH2bL0SQWlLSKU';
-const channelId = 'UCgZ0pLZFIKdj6Fj1lHEk3jw';
-
-fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=${channelId}&key=${apiKey}`)
-  .then(response => response.json())
-  .then(data => {
-    const channel = data.items[0];
-    const stats = channel.statistics || {};
-    const snippet = channel.snippet || {};
-
-    // ✅ Sub count and views
-    const subs = stats.subscriberCount || 1974;
-    const views = stats.viewCount || 1002641;
-    document.getElementById('yt-subs').textContent = Number(subs).toLocaleString();
-    document.getElementById('yt-views').textContent = Number(views).toLocaleString();
-
-    // ✅ Profile picture
-    if (snippet.thumbnails && snippet.thumbnails.high) {
-      document.getElementById('yt-profile').src = snippet.thumbnails.high.url;
-    }
-  })
-  .catch(error => {
-    console.error('YouTube API error:', error);
-    document.getElementById('yt-subs').textContent = '1,974';
-    document.getElementById('yt-views').textContent = '1,002,641';
-  });
 
 
 
@@ -226,7 +190,6 @@ fetch(`https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id
 
 document.getElementById('contactForm')?.addEventListener('submit', function (e) {
   e.preventDefault();
-
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();

@@ -23,10 +23,10 @@ h2 {
 }
 
 #navbar.scrolled {
-  opacity: 0.55;
+  opacity: 0.9; /* Slightly less transparent for readability */
 }
 
-.nav-link.active{
+.nav-link.active {
   border-bottom: 2px solid #0ff;
 }
 
@@ -40,9 +40,8 @@ h2 {
 
 .hero {
   background: linear-gradient(to right, #021945, #000000);
-  position: relative;
   color: white;
-  height: 110vh;
+  height: 100vh; /* Slightly more flexible */
   text-align: center;
   padding: 0 20px;
 }
@@ -85,7 +84,7 @@ h2 {
 }
 
 /* ========================================
-   ✅ Sections (About, Projects, Experience, Contact)
+   ✅ Sections
 ======================================== */
 
 .about-section,
@@ -96,12 +95,42 @@ h2 {
   padding: 60px 20px;
 }
 
+.about-section h2 {
+  font-size: 2rem;
+  color: #0ff;
+}
+.about-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+#seam_aftab {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position : center 10%;
+  border: 4px solid #0ff;
+  border-radius: 50%;
+  clip-path: circle(50%);
+}
+
+#about_yt, #about_msg{
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
+}
+
+#about_yt:hover{
+  color: #ff0000;
+  transition: 0.3s ease;
+}
+
 .projects-section,
 .hobbies-section {
   background-color: #fff;
   color: #021945;
   padding: 60px 20px;
-  min-height: 70vh; /* More flexible than fixed height */
+  min-height: 70vh;
 }
 
 .youtube-section {
@@ -109,6 +138,26 @@ h2 {
   color: #fff;
   padding: 60px 20px;
   min-height: 70vh;
+}
+
+#yt-profile {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position : center 10%;
+  border-radius: 50%;
+  clip-path: circle(50%);
+}
+
+#yt-btn{
+  background-color : #fff;
+  border-radius : 2px rounded;
+  border-color: #fff;
+  color: #bb0000;
+}
+#yt-btn:hover{
+  background-color : #bb0000;
+  color: #fff;
 }
 
 .contact-section {
@@ -122,10 +171,127 @@ h2 {
   background-color: #000;
   color: white;
   text-align: center;
+  padding: 30px 20px; /* Slightly more padding for spacing */
+}
+
+/* ========================================
+   ✅ Project Cards for All Projects Modal
+======================================== */
+
+.project-card {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.project-card h5 {
+  margin-top: 10px;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+}
+
+.project-card a {
+  margin-top: auto;
+}
+
+/* ========================================
+   ✅ Mobile Thumbnail Overlay
+======================================== */
+
+.mobile-thumbnail .overlay {
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ========================================
+   ✅ Project Section Header & View All
+======================================== */
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#projects .text-end {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+#projects .text-end .btn {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   ✅ All Projects Modal Content
+======================================== */
+
+#allProjectsModal .modal-content {
   padding: 20px;
 }
 
-/* Footer Social Icons */
+#allProjectsModal .modal-body {
+  max-height: 70vh;
+  overflow-y: scroll;
+  padding-right: 1rem;
+}
+
+
+.all-projects-list .project-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.all-projects-list .project-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.all-projects-list .project-item h5 {
+  margin: 0 0 10px;
+}
+
+.all-projects-list .project-item p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.all-projects-list .project-item a {
+  font-size: 0.85rem;
+  color: #021945;
+}
+
+.all-projects-list .project-item a:hover {
+  text-decoration: underline;
+  border-radius: 2px;
+  border-color: #021945;
+}
+
+/* ========================================
+   ✅ Footer Social Icons
+======================================== */
+
 .footer-section .social-icons a {
   display: inline-block;
   margin: 0 10px;
@@ -135,16 +301,15 @@ h2 {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  line-height: 36px;
+  line-height: 38px; /* Better vertical centering */
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .footer-section .social-icons a:hover {
   background-color: white;
-  color: #021945; /* or your neon accent color */
+  color: #021945;
 }
-
 
 /* ========================================
    ✅ Forms
@@ -159,6 +324,12 @@ h2 {
   background-color: #021945;
   color: #fff;
 }
+.submit-btn:hover{
+  border-radius: 6px;
+  border-color: #021945;
+  color : #021945;
+  background-color:#fff;
+}
 
 /* ========================================
    ✅ Carousel Controls
@@ -170,39 +341,38 @@ h2 {
 }
 
 .carousel-control-prev {
-  left: -120px; /* Desktop: push more left */
+  left: -120px; 
 }
 
 .carousel-control-next {
-  right: -120px; /* Desktop: push more right */
+  right: -120px;
 }
 
 /* ========================================
-   ✅ Carousel Item: Image & Row Layout
+   ✅ Carousel Items & Layout
 ======================================== */
 
-/* Ensure image fills its side and stays neat */
 .carousel-item img {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  max-height: 100%;
   border-radius: 12px;
 }
 
-/* Consistent slide height and centered content */
 .carousel-inner .row {
   min-height: 400px;
 }
 
-/* Tech stack icons styling */
 .tech-icons i {
   font-size: 1.8rem;
   margin-right: 8px;
 }
 
-/* Mobile hover effect */
+/* ========================================
+   ✅ Mobile Thumbnail Hover
+======================================== */
+
 .mobile-thumbnail {
   position: relative;
   overflow: hidden;
@@ -235,7 +405,7 @@ h2 {
 }
 
 /* ========================================
-   ✅ Responsive Adjustments (Mobile)
+   ✅ Responsive Tweaks
 ======================================== */
 
 @media (max-width: 768px) {
@@ -248,6 +418,6 @@ h2 {
   }
 
   .carousel-item img {
-    margin-bottom: 20px; /* Adds space below image on mobile view */
+    margin-bottom: 20px;
   }
 }
