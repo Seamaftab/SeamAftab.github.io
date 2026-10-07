@@ -1,278 +1,2315 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Seam Aftab | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <link rel="stylesheet" href="style.css"/>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- ✅ Navbar -->
-  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+
+  <!-- ========================================
+       Smart Navbar
+  ======================================== -->
+  <nav
+    id="smartNavbar"
+    class="navbar navbar-expand-lg fixed-top smart-navbar"
+  >
     <div class="container">
-      <a class="navbar-brand neon-text text-white" href="#">SBA</a>
-      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+
+      <a class="navbar-brand brand-mark" href="#home">
+        Seam Aftab
+      </a>
+
+      <button
+        class="navbar-toggler custom-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#hobbies"><i class="fa fa-camera" aria-hidden="true"></i></a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#youtube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#contact"><i class="fas fa-phone-alt" aria-hidden="true"></i></a></li>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarContent"
+      >
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">
+              About
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#expertise">
+              Expertise
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">
+              Work
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#research">
+              Research
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">
+              Experience
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#education">
+              Education
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#beyond-code">
+              Beyond Code
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">
+              Contact
+            </a>
+          </li>
+
+          <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+            <a
+              class="btn navbar-resume-btn"
+              href="Resume of Seam Aftab.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+          </li>
+
         </ul>
       </div>
+
     </div>
   </nav>
 
-  <!-- ✅ Hero Section -->
-  <section class="hero d-flex flex-column justify-content-center align-items-center text-center">
-    <h1 class="hero-title">Hi, I'm <span class="highlight">SEAM AFTAB</span></h1>
-    <h2 class="hero-subtitle">Software Engineer & Instructor</h2>
+
+  <!-- ========================================
+       Hero Section
+  ======================================== -->
+  <section
+    id="home"
+    class="hero d-flex flex-column justify-content-center align-items-center text-center"
+  >
+
+    <p class="hero-eyebrow">
+      SOFTWARE ENGINEER · RESEARCHER · EDUCATOR
+    </p>
+
+    <h1 class="hero-title">
+      Hi, I'm <span class="highlight">Seam Aftab.</span>
+    </h1>
+
+    <h2 class="hero-subtitle">
+      I build software, explore intelligent systems, and teach technology.
+    </h2>
+
     <div class="typing-carousel mt-3">
+      <span class="typing-prefix">
+        Currently exploring
+      </span>
+
       <span class="typed-text"></span>
+
       <span class="cursor">&nbsp;</span>
     </div>
-    <div class="d-flex flex-wrap gap-3 mt-4">
-      <a href="#projects" class="btn btn-outline-light">Explore My Work</a>
-      <a href="Resume of Seam Aftab.pdf" class="btn btn-outline-light" download>Download Resume</a>
-    </div>
-  </section>
 
-  <!-- ✅ About Section -->
-  <section id="about" class="about-section text-white">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Left Column: Image -->
-        <div class="col-md-6 text-center mb-4 mb-md-0">
-          <img src="images/yt/IMG_1598.jpg" alt="Seam Aftab" class="img-fluid rounded-circle shadow" id="seam_aftab" />
-        </div>
-
-        <!-- Right Column: Text -->
-        <div class="col-md-6">
-          <h2 class="mb-4">About Me</h2>
-          <p>
-            I’m Seam Bin Aftab — a <strong>Software Engineer</strong> and <strong>Instructor</strong> with a passion for creativity and learning. I adore the programming skills I have, and I am willing to learn more and explore more. Which is why I also try my ideas outside my programming skills as a <a href="#youtube" id="about_yt">YouTuber</a>. Ready for a creative adventure? Just drop me a <a href="#contact" id="about_msg">message</a> — let’s make something amazing together!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Projects Section (Updated) -->
-  <section id="projects" class="projects-section text-center">
-    <div class="container">
-      <!-- Title + View All button in same row -->
-      <div class="projects-header text-center mb-4">
-        <h2>PROJECTS</h2>
-      </div>
-      <div class="text-end mb-4">
-        <a href="#" class="btn submit-btn" data-bs-toggle="modal" data-bs-target="#allProjectModal">
-          View All Projects
-        </a>
-      </div>
-
-      <!-- Carousel for FEATURED projects only -->
-      <div id="projectCarousel" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-inner">
-          <!-- Populated by script.js -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ Experience Section -->
-  <section id="experience" class="experience-section text-center">
-    <div class="container">
-      <h2 class="mb-4">EXPERIENCE</h2>
-      <div id="experienceCarousel" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-md-5 col-5">
-                <h3>Lecturer</h3>
-                <p>Mar 2024 - Sep 2024</p>
-              </div>
-              <div class="col-md-5 col-7">
-                <h5>Institute of Global Management and Information System</h5>
-                <p>Used to teach E-Commerce to BBA Students</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#experienceCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#experienceCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="hobbies" class="hobbies-section text-center">
-    <div class="container">
-      <h2 class="mb-4">photography</h2>
-      <div id="hobbiesCarousel" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-inner">
-          <!-- ✅ Hobby Item 1 -->
-          <div class="carousel-item active">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <img src="images/hobbies/DSC08648.JPG" alt="Hobby 1" class="img-fluid rounded">
-              </div>
-              <div class="col-md-6 text-start">
-                <p><i class="fas fa-map-marker-alt"></i> Betagi, Rangunia, Chittagong</p>
-                <p>A brief description about this hobby moment or photo.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ✅ Hobby Item 2 -->
-          <div class="carousel-item">
-            <div class="row align-items-center">
-              <div class="col-md-6">
-                <img src="images/hobbies/20151228_135547.jpg" alt="Hobby 2" class="img-fluid rounded">
-              </div>
-              <div class="col-md-6 text-start">
-                <p><i class="fas fa-map-marker-alt"></i> Betagi, Rangunia, Chittagong</p>
-                <p>Another description about this hobby photo or experience.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- ✅ Add more hobby items here -->
-
-        </div>
-
-        <!-- Carousel controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#hobbiesCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="youtube" class="youtube-section text-center">
-    <div class="container">
-      <h2 class="mb-4">YouTube</h2>
-
-      <!-- ✅ This is the dynamic profile picture -->
-      <img 
-        id="yt-profile" 
-        src="images/yt/IMG_1598.jpg" 
-        alt="YouTube Profile" 
-        class="mb-3"
-        style="width: 100px; height: 100px;"
+    <div
+      class="hero-actions d-flex flex-wrap justify-content-center gap-3 mt-4"
+    >
+      <a
+        href="#projects"
+        class="btn hero-primary-btn"
       >
+        Explore My Work
+      </a>
 
-      <h4>@seamaftab</h4>
-      <h5>Subscribers: <span id="yt-subs">1,976</span></h5>
-      <h5>Total Views: <span id="yt-views">1,018,000</span></h5>
-      <a href="https://www.youtube.com/@seamaftab" target="_blank" class="btn submit-btn mt-3" id="yt-btn">
-        Visit Channel
+      <a
+        href="Resume of Seam Aftab.pdf"
+        class="btn hero-secondary-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Resume
       </a>
     </div>
+
+    <div class="hero-socials mt-4">
+
+      <a
+        href="https://github.com/Seamaftab"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a
+        href="https://linkedin.com/in/seam-aftab"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+
+      <a
+        href="mailto:seamaftab82@gmail.com"
+        aria-label="Email"
+      >
+        <i class="fas fa-envelope"></i>
+      </a>
+
+    </div>
+
+    <a
+      href="#about"
+      class="scroll-down"
+      aria-label="Scroll to About section"
+    >
+      <i class="fas fa-chevron-down"></i>
+    </a>
+
   </section>
 
-  <!-- ✅ Contact Section -->
-  <section id="contact" class="contact-section text-center">
+
+  <!-- ========================================
+       About Section
+  ======================================== -->
+  <section
+    id="about"
+    class="about-section"
+  >
     <div class="container">
-      <h2>CONTACT</h2>
-      <form id="contactForm" class="mx-auto mt-4" style="max-width: 600px;">
-        <div class="mb-3">
-          <input type="text" class="form-control" id="name" placeholder="Your Name" required/>
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-7">
+
+          <p class="section-kicker">
+            ABOUT ME
+          </p>
+
+          <h2 class="about-heading">
+            I like building things, understanding how they work,
+            and helping others understand them too.
+          </h2>
+
+          <p class="about-text">
+            I’m Seam Bin Aftab, a software engineer, educator, and postgraduate
+            Computer Science student with a growing focus on backend development,
+            machine learning, and natural language processing.
+          </p>
+
+          <p class="about-text">
+            My experience spans web application development, technical instruction,
+            and applied research. I’ve worked with technologies such as Laravel,
+            PHP, MySQL, Node.js, and Odoo, while also teaching computing and ICT
+            concepts in academic environments.
+          </p>
+
+          <p class="about-text">
+            Currently, I’m working on <strong>CLEAN</strong>, my MSc research on
+            Bangla fake-news detection using GAN-based data augmentation and
+            transformer models. It reflects the direction I’m increasingly drawn to:
+            solving real problems at the intersection of software engineering,
+            language, and intelligent systems.
+          </p>
+
+          <div class="about-links">
+
+            <a
+              href="#projects"
+              class="about-link"
+            >
+              View selected work
+              <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <a
+              href="#research"
+              class="about-link"
+            >
+              Explore my research
+              <i class="fas fa-arrow-right"></i>
+            </a>
+
+          </div>
+
         </div>
-        <div class="mb-3">
-          <input type="email" class="form-control" id="email" placeholder="Your Email" required/>
+
+
+        <div class="col-lg-5">
+
+          <div class="about-card-grid">
+
+            <div class="about-card">
+              <span class="about-card-number">
+                01
+              </span>
+
+              <h3>
+                Engineer
+              </h3>
+
+              <p>
+                Building backend systems and web applications with a focus on
+                practical, maintainable solutions.
+              </p>
+            </div>
+
+
+            <div class="about-card">
+              <span class="about-card-number">
+                02
+              </span>
+
+              <h3>
+                Researcher
+              </h3>
+
+              <p>
+                Exploring Bangla NLP, machine learning, GAN-based augmentation,
+                and transformer models through my MSc research.
+              </p>
+            </div>
+
+
+            <div class="about-card">
+              <span class="about-card-number">
+                03
+              </span>
+
+              <h3>
+                Educator
+              </h3>
+
+              <p>
+                Teaching computing and technology while turning complex ideas
+                into concepts people can actually use.
+              </p>
+            </div>
+
+          </div>
+
         </div>
-        <div class="mb-3">
-          <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="btn submit-btn">Send Message</button>
-        <p id="formStatus" class="mt-3"></p>
-      </form>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- ✅ Project Modal -->
-  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body row">
-          <div class="col-md-6 mb-3 mb-md-0">
-            <img id="modalImage" src="" alt="Project Image" class="img-fluid rounded">
-          </div>
-          <div class="col-md-6">
-            <h3 id="modalTitle"></h3>
-            <div id="modalIcons" class="tech-icons mb-2"></div>
-            <p id="modalDescription"></p>
-            <a id="modalLink" href="#" target="_blank" class="btn submit-btn mt-2">View on GitHub</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ✅ All Projects Modal -->
-  <div class="modal fade" id="allProjectModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title">All Projects</h5>
-          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row" id="allProjectsGrid">
-            <!-- ✅ Grid cards will be injected dynamically via JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- ========================================
+       Expertise Section
+  ======================================== -->
+  <section
+    id="expertise"
+    class="expertise-section"
+  >
+    <div class="container">
 
-  <!-- ✅ Footer -->
-  <footer class="footer-section text-center">
-    <div class="container py-4">
-      <div class="social-icons mb-3">
-        <a href="https://www.facebook.com/SEAMAFTAB" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://linkedin.com/in/seam-aftab" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/seamaftab" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.youtube.com/@seamaftab" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
+      <div class="expertise-header">
+
+        <p class="section-kicker">
+          EXPERTISE
+        </p>
+
+        <h2 class="expertise-heading">
+          The areas I work in.
+        </h2>
+
+        <p class="expertise-intro">
+          My work sits across software development, backend systems,
+          machine learning, research, and technical education.
+        </p>
+
       </div>
-      <p>© Seam Aftab, All rights reserved</p>
+
+
+      <div class="row g-4">
+
+        <!-- Backend & Web -->
+        <div class="col-lg-6">
+
+          <div class="expertise-card">
+
+            <div class="expertise-card-top">
+
+              <span class="expertise-number">
+                01
+              </span>
+
+              <div class="expertise-icon">
+                <i class="fas fa-code"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Backend & Web Development
+            </h3>
+
+            <p>
+              Building functional web applications, backend systems, and
+              data-driven features with an emphasis on maintainable architecture.
+            </p>
+
+            <div class="skill-tags">
+              <span>PHP</span>
+              <span>Laravel</span>
+              <span>MySQL</span>
+              <span>Node.js</span>
+              <span>REST APIs</span>
+              <span>Bootstrap</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Machine Learning & NLP -->
+        <div class="col-lg-6">
+
+          <div class="expertise-card">
+
+            <div class="expertise-card-top">
+
+              <span class="expertise-number">
+                02
+              </span>
+
+              <div class="expertise-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Machine Learning & NLP
+            </h3>
+
+            <p>
+              Exploring intelligent systems through applied machine learning,
+              natural language processing, and transformer-based research.
+            </p>
+
+            <div class="skill-tags">
+              <span>Python</span>
+              <span>Machine Learning</span>
+              <span>NLP</span>
+              <span>Transformers</span>
+              <span>Bangla NLP</span>
+              <span>GANs</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Tools -->
+        <div class="col-lg-6">
+
+          <div class="expertise-card">
+
+            <div class="expertise-card-top">
+
+              <span class="expertise-number">
+                03
+              </span>
+
+              <div class="expertise-icon">
+                <i class="fas fa-toolbox"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Tools & Development Workflow
+            </h3>
+
+            <p>
+              Working with development tools and platforms that support
+              collaboration, version control, testing, and project delivery.
+            </p>
+
+            <div class="skill-tags">
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>Odoo</span>
+              <span>VS Code</span>
+              <span>Database Design</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Teaching -->
+        <div class="col-lg-6">
+
+          <div class="expertise-card">
+
+            <div class="expertise-card-top">
+
+              <span class="expertise-number">
+                04
+              </span>
+
+              <div class="expertise-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Teaching & Communication
+            </h3>
+
+            <p>
+              Translating technical concepts into understandable lessons through
+              classroom teaching, explanation, mentoring, and communication.
+            </p>
+
+            <div class="skill-tags">
+              <span>Technical Instruction</span>
+              <span>ICT Education</span>
+              <span>Mentoring</span>
+              <span>Public Speaking</span>
+              <span>Communication</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Research Section
+  ======================================== -->
+  <section
+    id="research"
+    class="research-section"
+  >
+    <div class="container">
+
+      <div class="research-header">
+
+        <p class="section-kicker">
+          RESEARCH
+        </p>
+
+        <h2 class="research-heading">
+          Exploring how intelligent systems understand information.
+        </h2>
+
+        <p class="research-intro">
+          My current postgraduate research focuses on Bangla natural language
+          processing, synthetic data generation, and fake-news detection.
+        </p>
+
+      </div>
+
+
+      <div class="research-feature">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7">
+
+            <div class="research-label">
+              MSc Thesis · Natural Language Processing
+            </div>
+
+            <h3 class="research-title">
+              CLEAN
+            </h3>
+
+            <p class="research-full-title">
+              Classifying Lies and Evaluating Authentic News Using
+              GAN-Augmented Bangla Fake News Detection
+            </p>
+
+            <p class="research-description">
+              CLEAN investigates whether synthetically generated Bangla news can
+              improve fake-news detection. The research combines GAN-based text
+              generation with traditional machine-learning and transformer-based
+              classifiers to study both classification performance and the quality
+              of generated content.
+            </p>
+
+            <p class="research-description">
+              The work uses the BanFakeNews 2.0 dataset and evaluates models across
+              multiple experimental settings, including SeqGAN and LeakGAN
+              augmentation, TF-IDF with LinearSVC, and multilingual and
+              Bangla-specific transformer architectures.
+            </p>
+
+            <div class="research-tags">
+              <span>Bangla NLP</span>
+              <span>Fake News Detection</span>
+              <span>GANs</span>
+              <span>Transformers</span>
+              <span>Machine Learning</span>
+              <span>Text Classification</span>
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-5">
+
+            <div class="research-metrics">
+
+              <div class="research-metric">
+                <span class="metric-value">
+                  57,631
+                </span>
+
+                <span class="metric-label">
+                  News Articles
+                </span>
+              </div>
+
+
+              <div class="research-metric">
+                <span class="metric-value">
+                  95.20%
+                </span>
+
+                <span class="metric-label">
+                  Best Accuracy
+                </span>
+              </div>
+
+
+              <div class="research-metric">
+                <span class="metric-value">
+                  0.9078
+                </span>
+
+                <span class="metric-label">
+                  Macro F1
+                </span>
+              </div>
+
+
+              <div class="research-metric">
+                <span class="metric-value">
+                  0.9602
+                </span>
+
+                <span class="metric-label">
+                  ROC AUC
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="research-flow">
+
+          <div class="research-step">
+
+            <span>
+              01
+            </span>
+
+            <div>
+              <h4>
+                Dataset
+              </h4>
+
+              <p>
+                BanFakeNews 2.0
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="research-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+
+
+          <div class="research-step">
+
+            <span>
+              02
+            </span>
+
+            <div>
+              <h4>
+                Generation
+              </h4>
+
+              <p>
+                SeqGAN · LeakGAN
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="research-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+
+
+          <div class="research-step">
+
+            <span>
+              03
+            </span>
+
+            <div>
+              <h4>
+                Classification
+              </h4>
+
+              <p>
+                LinearSVC · BERT Models
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="research-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+
+
+          <div class="research-step">
+
+            <span>
+              04
+            </span>
+
+            <div>
+              <h4>
+                Evaluation
+              </h4>
+
+              <p>
+                F1 · ROC AUC · FBD
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="research-footer">
+
+          <p>
+            Best-performing configuration:
+            <strong>
+              SeqGAN + BanglaBERT
+            </strong>
+          </p>
+
+          <div class="research-actions">
+
+            <span class="research-status">
+              <i class="fas fa-flask"></i>
+              Research in progress
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Selected Work
+  ======================================== -->
+  <section
+    id="projects"
+    class="projects-section"
+  >
+    <div class="container">
+
+      <div class="projects-header">
+
+        <div>
+
+          <p class="section-kicker">
+            SELECTED WORK
+          </p>
+
+          <h2 class="projects-heading">
+            Things I’ve built.
+          </h2>
+
+        </div>
+
+        <p class="projects-intro">
+          A selection of projects where I explored backend development,
+          automation, deep learning, application architecture,
+          and practical problem solving.
+        </p>
+
+      </div>
+
+
+      <!-- Project 01 — ASHES -->
+      <article class="featured-project">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-6">
+
+            <div class="project-visual project-visual-ashes">
+
+              <div class="project-visual-content">
+
+                <span class="project-visual-label">
+                  IoT · Automation
+                </span>
+
+                <div class="project-icon-large">
+                  <i class="fas fa-house-signal"></i>
+                </div>
+
+                <span class="project-visual-title">
+                  ASHES
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-6">
+
+            <div class="project-content">
+
+              <span class="project-number">
+                01 / 03
+              </span>
+
+              <h3>
+                A Simplified Home Environment System
+              </h3>
+
+              <p class="project-summary">
+                A smart-home system designed to bring automation,
+                environmental monitoring, safety, and access control
+                into a single connected environment.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+
+                  <span>
+                    Challenge
+                  </span>
+
+                  <p>
+                    Create a practical home automation system capable of
+                    monitoring safety conditions while allowing convenient
+                    remote interaction.
+                  </p>
+
+                </div>
+
+
+                <div class="project-detail">
+
+                  <span>
+                    Solution
+                  </span>
+
+                  <p>
+                    Developed a system with gas and fire monitoring,
+                    biometric security, automated controls,
+                    and cloud-based remote access.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="project-tags">
+                <span>IoT</span>
+                <span>Automation</span>
+                <span>Cloud Control</span>
+                <span>Biometric Security</span>
+              </div>
+
+              <a
+                href="https://github.com/Seamaftab/ASHES"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-source-link"
+              >
+                <i class="fab fa-github"></i>
+                View Source
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 02 — Phoenix Rise Hub -->
+      <article class="featured-project">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-6 order-2 order-lg-1">
+
+            <div class="project-content">
+
+              <span class="project-number">
+                02 / 03
+              </span>
+
+              <h3>
+                Phoenix Rise Hub
+              </h3>
+
+              <p class="project-summary">
+                A Laravel-based e-commerce application built around
+                the complete shopping workflow, from product discovery
+                to order management.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+
+                  <span>
+                    Challenge
+                  </span>
+
+                  <p>
+                    Build a structured web application capable of managing
+                    both the customer shopping experience and administrative
+                    operations.
+                  </p>
+
+                </div>
+
+
+                <div class="project-detail">
+
+                  <span>
+                    Solution
+                  </span>
+
+                  <p>
+                    Developed cart and order-management functionality
+                    alongside an admin and moderator control panel for
+                    managing the platform.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="project-tags">
+                <span>Laravel</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>Bootstrap</span>
+                <span>E-Commerce</span>
+              </div>
+
+              <a
+                href="https://github.com/Seamaftab/PhoenixRiseHub"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-source-link"
+              >
+                <i class="fab fa-github"></i>
+                View Source
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-6 order-1 order-lg-2">
+
+            <div class="project-visual project-visual-phoenix">
+
+              <div class="project-visual-content">
+
+                <span class="project-visual-label">
+                  Web Application
+                </span>
+
+                <div class="project-icon-large">
+                  <i class="fas fa-cart-shopping"></i>
+                </div>
+
+                <span class="project-visual-title">
+                  Phoenix Rise Hub
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 03 — Satellite Image Classification -->
+      <article class="featured-project">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-6">
+
+            <div class="project-visual project-visual-satellite">
+
+              <div class="project-visual-content">
+
+                <span class="project-visual-label">
+                  Deep Learning · Computer Vision
+                </span>
+
+                <div class="project-icon-large">
+                  <i class="fas fa-satellite"></i>
+                </div>
+
+                <span class="project-visual-title">
+                  Satellite Image Classification
+                </span>
+
+                <div class="project-result">
+
+                  <strong>
+                    ~99%
+                  </strong>
+
+                  <span>
+                    Best Validation Accuracy
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-6">
+
+            <div class="project-content">
+
+              <span class="project-number">
+                03 / 03
+              </span>
+
+              <h3>
+                Satellite Image Classification
+              </h3>
+
+              <p class="project-summary">
+                A deep-learning image classification project comparing
+                multiple CNN architectures for identifying land-cover
+                patterns from satellite imagery.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+
+                  <span>
+                    Challenge
+                  </span>
+
+                  <p>
+                    Compare how different convolutional neural network
+                    architectures perform when classifying satellite images
+                    into four distinct environmental categories.
+                  </p>
+
+                </div>
+
+
+                <div class="project-detail">
+
+                  <span>
+                    Approach
+                  </span>
+
+                  <p>
+                    Evaluated a custom CNN alongside VGG16, ResNet34,
+                    ResNet50, and InceptionV3, including transfer-learning
+                    configurations for the larger pretrained models.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Deep Learning</span>
+                <span>CNN</span>
+                <span>Transfer Learning</span>
+                <span>Computer Vision</span>
+                <span>ResNet50</span>
+              </div>
+
+              <a
+                href="https://github.com/Seamaftab/Satellite-Image-Classification/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-source-link"
+              >
+                <i class="fab fa-github"></i>
+                View Source
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Projects Footer -->
+      <div class="projects-footer">
+
+        <div class="projects-footer-copy">
+
+          <span class="projects-footer-label">
+            MORE ON GITHUB
+          </span>
+
+          <p>
+            These are a few projects I chose to highlight.
+            There’s more behind the scenes — experiments, coursework,
+            machine-learning projects, and things I built simply to learn.
+          </p>
+
+        </div>
+
+
+        <div class="projects-footer-actions">
+
+          <button
+            type="button"
+            class="all-projects-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#projectsModal"
+          >
+            View All Projects
+            <i class="fas fa-arrow-right"></i>
+          </button>
+
+          <a
+            href="https://github.com/Seamaftab"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-project-link"
+          >
+            <i class="fab fa-github"></i>
+            GitHub Profile
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Experience Section
+  ======================================== -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+
+      <div class="experience-header">
+
+        <p class="section-kicker">
+          EXPERIENCE
+        </p>
+
+        <h2 class="experience-heading">
+          Where I’ve worked and what I’ve learned along the way.
+        </h2>
+
+        <p class="experience-intro">
+          My professional experience spans software development and technical
+          education, giving me the opportunity to work both on systems and with
+          the people who learn to use and understand them.
+        </p>
+
+      </div>
+
+
+      <div class="experience-timeline">
+
+
+        <!-- Experience 01 -->
+        <article class="experience-item">
+
+          <div class="experience-marker">
+            <span></span>
+          </div>
+
+          <div class="experience-meta">
+
+            <span class="experience-period">
+              Sep 2025 <span class="date-separator">—</span> Present
+            </span>
+
+            <span class="experience-type">
+              Education
+            </span>
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <div class="experience-role-row">
+
+              <div>
+
+                <h3>
+                  Lecturer
+                </h3>
+
+                <p class="experience-company">
+                  East Delta International School
+                </p>
+
+              </div>
+
+              <div class="experience-icon">
+                <i class="fas fa-chalkboard-user"></i>
+              </div>
+
+            </div>
+
+
+            <p class="experience-description">
+              Teaching computing and ICT concepts with an emphasis on practical
+              understanding, student engagement, and connecting classroom learning
+              with modern technology.
+            </p>
+
+
+            <ul class="experience-points">
+
+              <li>
+                Deliver computing and ICT lessons while maintaining alignment
+                with academic curriculum requirements.
+              </li>
+
+              <li>
+                Use interactive teaching approaches to make technical concepts
+                easier to understand and apply.
+              </li>
+
+              <li>
+                Introduce students to current technology concepts and encourage
+                structured problem solving.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+        <!-- Experience 02 -->
+        <article class="experience-item">
+
+          <div class="experience-marker">
+            <span></span>
+          </div>
+
+          <div class="experience-meta">
+
+            <span class="experience-period">
+              Jun 2025 <span class="date-separator">—</span> Jul 2025
+            </span>
+
+            <span class="experience-type">
+              Software Development
+            </span>
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <div class="experience-role-row">
+
+              <div>
+
+                <h3>
+                  Full Stack Developer
+                </h3>
+
+                <p class="experience-company">
+                  Dreamstream Digital
+                </p>
+
+              </div>
+
+              <div class="experience-icon">
+                <i class="fas fa-code"></i>
+              </div>
+
+            </div>
+
+
+            <p class="experience-description">
+              Worked on software projects involving Node.js and Odoo while
+              developing a better understanding of business requirements,
+              platform workflows, and practical software delivery.
+            </p>
+
+
+            <ul class="experience-points">
+
+              <li>
+                Contributed to projects using Node.js and Odoo.
+              </li>
+
+              <li>
+                Worked with application requirements from a business-oriented
+                perspective.
+              </li>
+
+              <li>
+                Gained practical exposure to software development workflows
+                outside an academic environment.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+        <!-- Experience 03 -->
+        <article class="experience-item">
+
+          <div class="experience-marker">
+            <span></span>
+          </div>
+
+          <div class="experience-meta">
+
+            <span class="experience-period">
+              Mar 2024 <span class="date-separator">—</span> Sep 2024
+            </span>
+
+            <span class="experience-type">
+              Education
+            </span>
+
+          </div>
+
+
+          <div class="experience-content">
+
+            <div class="experience-role-row">
+
+              <div>
+
+                <h3>
+                  Lecturer
+                </h3>
+
+                <p class="experience-company">
+                  Institute of Global Management and Information System
+                </p>
+
+              </div>
+
+              <div class="experience-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+
+            </div>
+
+
+            <p class="experience-description">
+              Taught ICT fundamentals and technology-related concepts while
+              helping students build practical understanding through structured,
+              interactive instruction.
+            </p>
+
+
+            <ul class="experience-points">
+
+              <li>
+                Delivered ICT fundamentals while maintaining curriculum alignment.
+              </li>
+
+              <li>
+                Used interactive approaches to improve student engagement and
+                understanding.
+              </li>
+
+              <li>
+                Connected classroom topics with relevant technology concepts
+                and industry practices.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================
+       Education & Training Section
+  ======================================== -->
+  <section id="education" class="education-section">
+    <div class="container">
+
+      <div class="education-header">
+
+        <p class="section-kicker">
+          EDUCATION & TRAINING
+        </p>
+
+        <h2 class="education-heading">
+          Building the foundation behind the work.
+        </h2>
+
+        <p class="education-intro">
+          My academic background in computer science is complemented by
+          practical training in backend development and communication.
+        </p>
+
+      </div>
+
+
+      <div class="education-grid">
+
+        <!-- Education -->
+        <div class="education-column">
+
+          <div class="education-column-label">
+            Academic
+          </div>
+
+
+          <article class="education-card">
+
+            <div class="education-card-top">
+
+              <span class="education-year">
+                2024 — Present
+              </span>
+
+              <div class="education-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Master of Science in Computer Science and Engineering
+            </h3>
+
+            <p class="education-institution">
+              East Delta University
+            </p>
+
+            <p class="education-description">
+              Currently pursuing postgraduate studies with a growing focus on
+              machine learning, natural language processing, and applied research.
+            </p>
+
+          </article>
+
+
+          <article class="education-card">
+
+            <div class="education-card-top">
+
+              <span class="education-year">
+                2022
+              </span>
+
+              <div class="education-icon">
+                <i class="fas fa-university"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Bachelor of Science in Computer Science and Engineering
+            </h3>
+
+            <p class="education-institution">
+              International Islamic University Chittagong
+            </p>
+
+            <p class="education-description">
+              Built a strong foundation in programming, software development,
+              problem solving, and core computer science concepts.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <!-- Training -->
+        <div class="education-column">
+
+          <div class="education-column-label">
+            Training
+          </div>
+
+
+          <article class="education-card">
+
+            <div class="education-card-top">
+
+              <span class="education-year">
+                2022 — 2023
+              </span>
+
+              <div class="education-icon">
+                <i class="fas fa-code"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              PHP with Laravel Framework
+            </h3>
+
+            <p class="education-institution">
+              BITM · Pondit
+            </p>
+
+            <p class="education-description">
+              Developed practical experience with Laravel’s MVC architecture,
+              Eloquent ORM, CRUD operations, and backend application structure.
+            </p>
+
+          </article>
+
+
+          <article class="education-card">
+
+            <div class="education-card-top">
+
+              <span class="education-year">
+                Professional Development
+              </span>
+
+              <div class="education-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+
+            </div>
+
+            <h3>
+              Spoken English
+            </h3>
+
+            <p class="education-institution">
+              WSDA · Executive’s Care
+            </p>
+
+            <p class="education-description">
+              Focused on vocabulary development, active listening,
+              pronunciation, and clear professional communication.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================
+       Beyond Code Section
+  ======================================== -->
+  <section id="beyond-code" class="beyond-section">
+    <div class="container">
+
+      <div class="beyond-header">
+
+        <p class="section-kicker">
+          BEYOND CODE
+        </p>
+
+        <h2 class="beyond-heading">
+          Creativity doesn’t stop at the keyboard.
+        </h2>
+
+        <p class="beyond-intro">
+          Outside software, research, and teaching, I enjoy creating through
+          photography and video. These spaces give me room to observe, tell
+          stories, experiment, and stay curious in a different way.
+        </p>
+
+      </div>
+
+
+      <div class="beyond-grid">
+
+        <!-- ========================================
+             Photography
+        ======================================== -->
+        <article class="beyond-card beyond-card-photo">
+
+          <div class="beyond-card-top">
+
+            <span class="beyond-card-label">
+              PHOTOGRAPHY
+            </span>
+
+            <div class="beyond-card-icon">
+              <i class="fas fa-camera"></i>
+            </div>
+
+          </div>
+
+          <h3>
+            Framing moments that catch my attention.
+          </h3>
+
+          <p>
+            Photography is where I slow down and pay attention to details,
+            light, places, and everyday scenes that might otherwise go unnoticed.
+          </p>
+
+
+          <div class="beyond-photo-grid">
+
+            <button
+              type="button"
+              class="photography-preview"
+              data-bs-toggle="modal"
+              data-bs-target="#photographyModal"
+              data-photo="images/hobbies/20151228_135547.jpg"
+              aria-label="Open photography gallery"
+            >
+              <img
+                src="images/hobbies/20151228_135547.jpg"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+
+            <button
+              type="button"
+              class="photography-preview"
+              data-bs-toggle="modal"
+              data-bs-target="#photographyModal"
+              data-photo="images/hobbies/DSC08648.JPG"
+              aria-label="Open photography gallery"
+            >
+              <img
+                src="images/hobbies/DSC08648.JPG"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+
+            <button
+              type="button"
+              class="photography-preview"
+              data-bs-toggle="modal"
+              data-bs-target="#photographyModal"
+              data-photo="images/hobbies/IMG_20180625_193227.jpg"
+              aria-label="Open photography gallery"
+            >
+              <img
+                src="images/hobbies/IMG_20180625_193227.jpg"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="beyond-gallery-link"
+            data-bs-toggle="modal"
+            data-bs-target="#photographyModal"
+          >
+            View Photography
+            <i class="fas fa-arrow-right"></i>
+          </button>
+
+        </article>
+
+
+        <!-- ========================================
+             YouTube
+        ======================================== -->
+        <article class="beyond-card beyond-card-youtube">
+
+          <div class="beyond-card-top">
+
+            <span class="beyond-card-label">
+              YOUTUBE
+            </span>
+
+            <div class="beyond-card-icon">
+              <i class="fab fa-youtube"></i>
+            </div>
+
+          </div>
+
+          <h3>
+            Learning in public and sharing what I create.
+          </h3>
+
+          <p>
+            My YouTube channel has been a place to experiment with ideas,
+            communication, and digital content while learning how to reach
+            and engage an audience.
+          </p>
+
+
+          <div class="beyond-stats">
+
+            <div class="beyond-stat">
+
+              <strong id="youtubeSubscribers">
+                —
+              </strong>
+
+              <span>
+                Subscribers
+              </span>
+
+            </div>
+
+
+            <div class="beyond-stat">
+
+              <strong id="youtubeViews">
+                —
+              </strong>
+
+              <span>
+                Total Views
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <a
+            href="https://youtube.com/@seamaftab"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="beyond-link"
+          >
+            Visit YouTube
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================
+       Contact Section
+  ======================================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+
+      <div class="contact-wrapper">
+
+        <!-- Left -->
+        <div class="contact-content">
+
+          <p class="section-kicker">
+            CONTACT
+          </p>
+
+          <h2 class="contact-heading">
+            Have an idea, opportunity, or something worth discussing?
+          </h2>
+
+          <p class="contact-intro">
+            Whether it’s software development, research, teaching,
+            collaboration, or simply an interesting conversation,
+            feel free to reach out.
+          </p>
+
+
+          <div class="contact-links">
+
+            <a
+              href="mailto:seamaftab82@gmail.com"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+
+              <span class="contact-link-text">
+                <small>Email</small>
+                <strong>seamaftab82@gmail.com</strong>
+              </span>
+
+              <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+
+            <a
+              href="https://www.linkedin.com/in/seam-aftab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </span>
+
+              <span class="contact-link-text">
+                <small>LinkedIn</small>
+                <strong>Connect professionally</strong>
+              </span>
+
+              <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+
+            <a
+              href="https://github.com/Seamaftab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">
+                <i class="fab fa-github"></i>
+              </span>
+
+              <span class="contact-link-text">
+                <small>GitHub</small>
+                <strong>Explore my code</strong>
+              </span>
+
+              <i class="fas fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Right -->
+        <div class="contact-cta-card">
+
+          <span class="contact-cta-label">
+            LET’S CONNECT
+          </span>
+
+          <h3>
+            The easiest way to reach me is by email.
+          </h3>
+
+          <p>
+            If you have a project, research idea, teaching opportunity,
+            or collaboration in mind, send me a message and I’ll get back
+            to you when I can.
+          </p>
+
+          <a
+            href="mailto:seamaftab82@gmail.com"
+            class="contact-primary-btn"
+          >
+            Send an Email
+            <i class="fas fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+  ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">
+            Seam Aftab<span>.</span>
+          </a>
+
+          <p>
+            Software Engineer · Researcher · Educator
+          </p>
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="#about">About</a>
+          <a href="#projects">Work</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-socials">
+
+          <a
+            href="https://github.com/Seamaftab"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/seam-aftab"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a
+            href="mailto:seamaftab82@gmail.com"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          © <span id="currentYear"></span> Seam Aftab. All rights reserved.
+        </p>
+
+        <a href="#home" class="back-to-top">
+          Back to top
+          <i class="fas fa-arrow-up"></i>
+        </a>
+
+      </div>
+
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ========================================
+       All Projects Modal
+  ======================================== -->
+  <div
+    class="modal fade projects-modal"
+    id="projectsModal"
+    tabindex="-1"
+    aria-labelledby="projectsModalLabel"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    >
+
+      <div class="modal-content">
+
+        <div class="projects-modal-header">
+
+          <div>
+
+            <p class="projects-modal-kicker">
+              PROJECT ARCHIVE
+            </p>
+
+            <h2 id="projectsModalLabel">
+              More things I've built.
+            </h2>
+
+            <p>
+              Experiments, coursework, research projects, and development work
+              pulled directly from my GitHub.
+            </p>
+
+          </div>
+
+          <button
+            type="button"
+            class="projects-modal-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <i class="fas fa-xmark"></i>
+          </button>
+
+        </div>
+
+
+        <div class="project-filter-bar">
+
+          <button
+            class="project-filter active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="project-filter"
+            data-filter="web"
+          >
+            Web
+          </button>
+
+          <button
+            class="project-filter"
+            data-filter="ml"
+          >
+            ML / AI
+          </button>
+
+          <button
+            class="project-filter"
+            data-filter="other"
+          >
+            Other
+          </button>
+
+        </div>
+
+
+        <div
+          id="projectsLoading"
+          class="projects-loading"
+        >
+          <div class="project-loader"></div>
+
+          <p>
+            Loading projects from GitHub...
+          </p>
+        </div>
+
+
+        <div
+          id="allProjectsGrid"
+          class="all-projects-grid"
+        ></div>
+
+
+        <div
+          id="projectsError"
+          class="projects-error"
+          style="display: none;"
+        >
+
+          <i class="fab fa-github"></i>
+
+          <h3>
+            Couldn't load projects.
+          </h3>
+
+          <p>
+            GitHub may be temporarily unavailable.
+          </p>
+
+          <a
+            href="https://github.com/Seamaftab"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit GitHub instead
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+
+        <div class="projects-modal-footer">
+
+          <p>
+            Want to see commits, code, or project history?
+          </p>
+
+          <a
+            href="https://github.com/Seamaftab"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore GitHub
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================
+       Photography Modal
+  ======================================== -->
+  <div
+    class="modal fade photography-modal"
+    id="photographyModal"
+    tabindex="-1"
+    aria-labelledby="photographyModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+      <div class="modal-content">
+
+        <div class="photography-modal-header">
+
+          <div>
+            <p class="photography-modal-kicker">
+              PHOTOGRAPHY
+            </p>
+
+            <h2 id="photographyModalLabel">
+              Through my lens.
+            </h2>
+
+            <p>
+              A collection of places, moments, light, and details
+              that caught my attention.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="photography-modal-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <i class="fas fa-xmark"></i>
+          </button>
+
+        </div>
+
+
+        <div class="photography-modal-body">
+
+          <div class="photography-gallery">
+
+            <button
+              type="button"
+              class="gallery-photo"
+              data-photo="images/hobbies/20151228_135547.jpg"
+            >
+              <img
+                src="images/hobbies/20151228_135547.jpg"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+
+            <button
+              type="button"
+              class="gallery-photo"
+              data-photo="images/hobbies/DSC08648.JPG"
+            >
+              <img
+                src="images/hobbies/DSC08648.JPG"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+
+            <button
+              type="button"
+              class="gallery-photo"
+              data-photo="images/hobbies/IMG_20180625_193227.jpg"
+            >
+              <img
+                src="images/hobbies/IMG_20180625_193227.jpg"
+                alt="Photography by Seam Aftab"
+              >
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================
+       Fullscreen Photo Viewer
+  ======================================== -->
+  <div
+    class="photo-lightbox"
+    id="photoLightbox"
+    aria-hidden="true"
+  >
+
+    <button
+      type="button"
+      class="photo-lightbox-close"
+      id="photoLightboxClose"
+      aria-label="Close photo"
+    >
+      <i class="fas fa-xmark"></i>
+    </button>
+
+
+    <button
+      type="button"
+      class="photo-lightbox-nav photo-lightbox-prev"
+      id="photoPrevious"
+      aria-label="Previous photo"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+
+    <img
+      id="photoLightboxImage"
+      src=""
+      alt="Photography by Seam Aftab"
+    >
+
+
+    <button
+      type="button"
+      class="photo-lightbox-nav photo-lightbox-next"
+      id="photoNext"
+      aria-label="Next photo"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div>
+  <!-- ========================================
+       Scripts
+  ======================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
   <script src="script.js"></script>
 
 </body>
+
 </html>

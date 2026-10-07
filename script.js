@@ -1,206 +1,854 @@
-// =============================================
-// ✅ Active Navbar link highlight on scroll
-// =============================================
+/* ========================================
+   Smart Navbar
+======================================== */
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const navbar = document.getElementById("smartNavbar");
 
 window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
+  if (window.scrollY > 40) {
+    navbar?.classList.add("scrolled");
+  } else {
+    navbar?.classList.remove("scrolled");
+  }
+});
+
+
+/* ========================================
+   Active Nav Link on Scroll
+======================================== */
+
+const navLinks = document.querySelectorAll(".smart-navbar .nav-link");
+
+const sections = [
+  "about",
+  "expertise",
+  "projects",
+  "research",
+  "experience",
+  "education",
+  "beyond-code",
+  "contact"
+];
+
+window.addEventListener("scroll", () => {
+  let currentSection = "";
+
+  sections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (!section) {
+      return;
+    }
+
+    const sectionTop = section.offsetTop - 140;
+
+    if (window.scrollY >= sectionTop) {
+      currentSection = sectionId;
     }
   });
 
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
+
+    if (link.getAttribute("href") === `#${currentSection}`) {
       link.classList.add("active");
     }
   });
 });
 
-// =============================================
-// ✅ Typing effect
-// =============================================
 
-const texts = ["Programmer", "Instructor", "YouTuber", "Learner"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+/* ========================================
+   Close Mobile Navbar After Click
+======================================== */
 
-(function type() {
-  if (count === texts.length) count = 0;
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
+const navbarCollapse = document.getElementById("navbarContent");
 
-  document.querySelector(".typed-text").textContent = letter;
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth >= 992 || !navbarCollapse) {
+      return;
+    }
 
-  if (letter.length === currentText.length) {
-    setTimeout(() => {
-      index = 0;
-      count++;
-      setTimeout(type, 500);
-    }, 1500);
-  } else {
-    setTimeout(type, 100);
-  }
-})();
+    const collapseInstance =
+      bootstrap.Collapse.getInstance(navbarCollapse);
 
-// =============================================
-// ✅ GitHub Projects: Featured Carousel + All Projects Modal
-// =============================================
-
-document.addEventListener('DOMContentLoaded', () => {
-  const carouselInner = document.querySelector('#projectCarousel .carousel-inner');
-  const allProjectsGrid = document.getElementById('allProjectsGrid');
-  carouselInner.innerHTML = '';
-  allProjectsGrid.innerHTML = '';
-
-  const githubUsername = 'Seamaftab';
-  const featuredProjects = ["ASHES", "Helmet-Detection-Using-YOLO", "PhoenixRiseHub"];
-  const ignoreProjects = ["seamaftab.github.io"]; // lowercase on purpose!
-
-  const techIcons = {
-    "python": '<i class="devicon-python-plain colored"></i>',
-    "php": '<i class="devicon-php-plain colored"></i>',
-    "laravel": '<i class="devicon-laravel-plain colored"></i>',
-    "cpp": '<i class="devicon-cplusplus-plain colored"></i>',
-    "ino": '<i class="devicon-arduino-plain colored"></i>',
-    "html": '<i class="devicon-html5-plain colored"></i>',
-    "css": '<i class="devicon-css3-plain colored"></i>',
-    "js": '<i class="devicon-javascript-plain colored"></i>',
-    "bootstrap": '<i class="devicon-bootstrap-plain colored"></i>',
-  };
-
-  const techs = {
-    "ASHES": ["cpp", "ino"],
-    "Helmet-Detection-Using-YOLO": ["python"],
-    "Satellite-Image-Classification": ["python"],
-    "Credit-Management-Telegram-Bot": ["python"],
-    "Affordability_Calculator": ["python"],
-    "PhoenixRiseHub": ["php", "laravel", "css", "js", "html", "bootstrap"],
-    "Electronic_HUT": ["css", "js", "html", "bootstrap"],
-    "DigitalShop": ["php", "laravel", "css", "js", "html", "bootstrap"],
-    "Image-Forgery-Detection-Using-Machine-Learning" : ["python"]
-  };
-
-  const thumbnails = {
-    "ASHES": "images/projects/ashes.png",
-    "Helmet-Detection-Using-YOLO": "images/projects/helmet.png",
-    "Satellite-Image-Classification": "images/projects/satellite.png",
-    "Credit-Management-Telegram-Bot": "images/projects/bot.png",
-    "Affordability_Calculator": "images/projects/calculator.png",
-    "PhoenixRiseHub": "images/projects/phoenix.png",
-    "Electronic_HUT": "images/projects/hut.png",
-    "DigitalShop": "images/projects/digitalshop.png",
-    "Image-Forgery-Detection-Using-Machine-Learning" : "images/projects/forgery.png",
-    "default": "images/projects/default.webp"
-  };
-
-  fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated`)
-    .then(response => response.json())
-    .then(repos => {
-      repos.forEach((repo) => {
-        const repoName = repo.name.toLowerCase();
-        if (ignoreProjects.includes(repoName)) return;
-
-        const isFeatured = featuredProjects.includes(repo.name);
-        const thumbnail = thumbnails[repo.name] || thumbnails["default"];
-        const projectTechs = techs[repo.name] || [];
-        const iconsHTML = projectTechs.map(tech => techIcons[tech] || '').join(' ');
-
-        // ✅ Featured → Carousel
-        if (isFeatured) {
-          const item = document.createElement('div');
-          item.classList.add('carousel-item');
-          if (carouselInner.children.length === 0) item.classList.add('active');
-
-          item.innerHTML = `
-            <div class="mobile-thumbnail d-block d-md-none position-relative"
-              data-title="${repo.name.toUpperCase()}"
-              data-techs="${projectTechs.join(',')}"
-              data-description="${repo.description || 'No description provided.'}"
-              data-image="${thumbnail}"
-              data-link="${repo.html_url}">
-              <img src="${thumbnail}" alt="${repo.name}" class="img-fluid w-100 rounded">
-              <div class="overlay d-flex flex-column">
-                <h3>${repo.name.toUpperCase()}</h3>
-                <div class="tech-icons">${iconsHTML}</div>
-              </div>
-            </div>
-            <div class="row h-100 align-items-center justify-content-center d-none d-md-flex">
-              <div class="col-md-6">
-                <img src="${thumbnail}" alt="${repo.name}" class="img-fluid rounded">
-              </div>
-              <div class="col-md-6 text-center text-md-start">
-                <h3>${repo.name.toUpperCase()}</h3>
-                <div class="tech-icons">${iconsHTML}</div>
-                <p>${repo.description || 'No description provided.'}</p>
-                <a href="${repo.html_url}" target="_blank" class="btn submit-btn mt-2">View Project</a>
-              </div>
-            </div>`;
-          carouselInner.appendChild(item);
-        }
-
-        // ✅ All Projects → Modal grid
-        const card = document.createElement('div');
-        card.className = 'col-md-4 mb-4';
-        card.innerHTML = `
-          <div class="project-card text-center">
-            <img src="${thumbnail}" alt="${repo.name}">
-            <h5>${repo.name.toUpperCase()}</h5>
-            <div class="tech-icons">${iconsHTML}</div>
-            <p>${repo.description || 'No description provided.'}</p>
-            <a href="${repo.html_url}" target="_blank" class="btn btn-sm submit-btn">View on GitHub</a>
-          </div>`;
-        allProjectsGrid.appendChild(card);
-      });
-    })
-    .catch(err => console.error(err));
-
-  // ✅ Mobile Thumbnail → Modal
-  document.addEventListener('click', e => {
-    const thumb = e.target.closest('.mobile-thumbnail');
-    if (!thumb) return;
-    const title = thumb.dataset.title;
-    const techKeys = thumb.dataset.techs.split(',');
-    const description = thumb.dataset.description;
-    const image = thumb.dataset.image;
-    const link = thumb.dataset.link;
-    const iconsHTML = techKeys.map(t => techIcons[t] || '').join(' ');
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalIcons').innerHTML = iconsHTML;
-    document.getElementById('modalDescription').innerText = description;
-    document.getElementById('modalImage').src = image;
-    document.getElementById('modalLink').href = link;
-    const modal = new bootstrap.Modal(document.getElementById('projectModal'));
-    modal.show();
+    if (collapseInstance) {
+      collapseInstance.hide();
+    }
   });
 });
 
 
+/* ========================================
+   Typing Effect
+======================================== */
 
-// =============================================
-// ✅ Contact form logic
-// =============================================
+const typedText = document.querySelector(".typed-text");
 
-document.getElementById('contactForm')?.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const status = document.getElementById('formStatus');
+const typingTexts = [
+  "Bangla NLP",
+  "Backend Systems",
+  "Machine Learning",
+  "Applied Research"
+];
 
-  if (name && email && message) {
-    status.textContent = 'Thank you for your message!';
-    status.style.color = 'green';
-    this.reset();
-  } else {
-    status.textContent = 'Please fill in all fields.';
-    status.style.color = 'red';
+let typingTextIndex = 0;
+let typingCharacterIndex = 0;
+let isDeleting = false;
+
+
+function runTypingEffect() {
+  if (!typedText) {
+    return;
   }
+
+  const currentText = typingTexts[typingTextIndex];
+
+
+  if (!isDeleting) {
+    typingCharacterIndex++;
+
+    typedText.textContent =
+      currentText.substring(0, typingCharacterIndex);
+
+    if (typingCharacterIndex === currentText.length) {
+      isDeleting = true;
+
+      setTimeout(runTypingEffect, 1400);
+
+      return;
+    }
+  }
+
+  else {
+    typingCharacterIndex--;
+
+    typedText.textContent =
+      currentText.substring(0, typingCharacterIndex);
+
+    if (typingCharacterIndex === 0) {
+      isDeleting = false;
+
+      typingTextIndex =
+        (typingTextIndex + 1) % typingTexts.length;
+    }
+  }
+
+
+  const typingSpeed =
+    isDeleting ? 55 : 90;
+
+  setTimeout(runTypingEffect, typingSpeed);
+}
+
+
+runTypingEffect();
+
+
+/* ========================================
+   GitHub Project Explorer
+======================================== */
+
+const githubUsername = "Seamaftab";
+
+const projectsModal =
+  document.getElementById("projectsModal");
+
+const allProjectsGrid =
+  document.getElementById("allProjectsGrid");
+
+const projectsLoading =
+  document.getElementById("projectsLoading");
+
+const projectsError =
+  document.getElementById("projectsError");
+
+let githubProjects = [];
+let projectsLoaded = false;
+
+
+/* ========================================
+   Known Project Metadata
+======================================== */
+
+const projectMetadata = {
+
+  "ASHES": {
+    category: "other",
+    tags: [
+      "IoT",
+      "Automation",
+      "Smart Home"
+    ]
+  },
+
+  "PhoenixRiseHub": {
+    category: "web",
+    tags: [
+      "Laravel",
+      "PHP",
+      "MySQL"
+    ]
+  },
+
+  "DigitalShop": {
+    category: "web",
+    tags: [
+      "Laravel",
+      "PHP",
+      "E-Commerce"
+    ]
+  },
+
+  "Satellite-Image-Classification": {
+    category: "ml",
+    tags: [
+      "Python",
+      "CNN",
+      "Deep Learning"
+    ]
+  },
+
+  "Helmet-Detection-Using-YOLO": {
+    category: "ml",
+    tags: [
+      "YOLO",
+      "Computer Vision",
+      "Python"
+    ]
+  },
+
+  "Image-Forgery-Detection-Using-Machine-Learning": {
+    category: "ml",
+    tags: [
+      "Machine Learning",
+      "Python",
+      "Computer Vision"
+    ]
+  },
+
+  "Credit-Management-Telegram-Bot": {
+    category: "other",
+    tags: [
+      "Telegram Bot",
+      "Automation",
+      "Python"
+    ]
+  },
+
+  "Affordability_Calculator": {
+    category: "web",
+    tags: [
+      "Web",
+      "Calculator"
+    ]
+  },
+
+  "Electronic_HUT": {
+    category: "web",
+    tags: [
+      "Web Application"
+    ]
+  }
+
+};
+
+
+/* ========================================
+   Clean Repository Name
+======================================== */
+
+function cleanProjectName(name) {
+  return name
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (character) =>
+      character.toUpperCase()
+    );
+}
+
+
+/* ========================================
+   Detect Project Category
+======================================== */
+
+function detectProjectCategory(repo) {
+
+  if (projectMetadata[repo.name]) {
+    return projectMetadata[repo.name].category;
+  }
+
+
+  const searchableContent = `
+    ${repo.name}
+    ${repo.description || ""}
+    ${repo.language || ""}
+  `.toLowerCase();
+
+
+  const mlKeywords = [
+    "machine learning",
+    "deep learning",
+    "neural network",
+    "cnn",
+    "yolo",
+    "classification",
+    "computer vision",
+    "nlp",
+    "transformer",
+    "bert",
+    "artificial intelligence"
+  ];
+
+
+  const webKeywords = [
+    "laravel",
+    "php",
+    "website",
+    "web app",
+    "web application",
+    "html",
+    "css",
+    "javascript",
+    "bootstrap",
+    "e-commerce",
+    "ecommerce"
+  ];
+
+
+  if (
+    mlKeywords.some((keyword) =>
+      searchableContent.includes(keyword)
+    )
+  ) {
+    return "ml";
+  }
+
+
+  if (
+    webKeywords.some((keyword) =>
+      searchableContent.includes(keyword)
+    )
+  ) {
+    return "web";
+  }
+
+
+  return "other";
+}
+
+
+/* ========================================
+   Generate Project Tags
+======================================== */
+
+function getProjectTags(repo) {
+
+  if (projectMetadata[repo.name]) {
+    return projectMetadata[repo.name].tags;
+  }
+
+
+  const tags = [];
+
+  if (repo.language) {
+    tags.push(repo.language);
+  }
+
+
+  const category =
+    detectProjectCategory(repo);
+
+
+  if (category === "ml") {
+    tags.push("ML / AI");
+  }
+
+  if (category === "web") {
+    tags.push("Web");
+  }
+
+
+  return [...new Set(tags)].slice(0, 3);
+}
+
+
+/* ========================================
+   Render Projects
+======================================== */
+
+function renderProjects(filter = "all") {
+
+  if (!allProjectsGrid) {
+    return;
+  }
+
+
+  allProjectsGrid.innerHTML = "";
+
+
+  const filteredProjects =
+    githubProjects.filter((repo) => {
+
+      if (filter === "all") {
+        return true;
+      }
+
+      return (
+        detectProjectCategory(repo) === filter
+      );
+
+    });
+
+
+  filteredProjects.forEach((repo) => {
+
+    const tags = getProjectTags(repo);
+
+    const projectCard =
+      document.createElement("article");
+
+    projectCard.className =
+      "archive-project";
+
+
+    projectCard.innerHTML = `
+
+      <div class="archive-project-top">
+
+        <div class="archive-project-icon">
+          <i class="far fa-folder"></i>
+        </div>
+
+        <a
+          href="${repo.html_url}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="archive-project-link"
+          aria-label="Open ${repo.name} on GitHub"
+        >
+          <i class="fas fa-arrow-up-right-from-square"></i>
+        </a>
+
+      </div>
+
+
+      <h3>
+        ${cleanProjectName(repo.name)}
+      </h3>
+
+
+      <p class="archive-project-description">
+        ${
+          repo.description ||
+          "A development project available on my GitHub."
+        }
+      </p>
+
+
+      <div class="archive-project-tags">
+
+        ${tags
+          .map(
+            (tag) =>
+              `<span>${tag}</span>`
+          )
+          .join("")}
+
+      </div>
+
+    `;
+
+
+    allProjectsGrid.appendChild(projectCard);
+
+  });
+
+
+  if (filteredProjects.length === 0) {
+
+    allProjectsGrid.innerHTML = `
+
+      <div class="projects-empty">
+        No projects found in this category.
+      </div>
+
+    `;
+
+  }
+}
+
+
+/* ========================================
+   Load GitHub Repositories
+======================================== */
+
+async function loadGithubProjects() {
+
+  if (
+    projectsLoaded ||
+    !allProjectsGrid
+  ) {
+    return;
+  }
+
+
+  if (projectsLoading) {
+    projectsLoading.style.display = "flex";
+  }
+
+  if (projectsError) {
+    projectsError.style.display = "none";
+  }
+
+
+  try {
+
+    const response = await fetch(
+      `https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=100`
+    );
+
+
+    if (!response.ok) {
+      throw new Error(
+        `GitHub request failed: ${response.status}`
+      );
+    }
+
+
+    const repositories =
+      await response.json();
+
+
+    githubProjects =
+      repositories.filter((repo) => {
+
+        const repoName =
+          repo.name.toLowerCase();
+
+
+        return (
+          !repo.fork &&
+          repoName !==
+            githubUsername.toLowerCase() &&
+          repoName !==
+            "seamaftab.github.io"
+        );
+
+      });
+
+
+    projectsLoaded = true;
+
+
+    if (projectsLoading) {
+      projectsLoading.style.display = "none";
+    }
+
+
+    renderProjects("all");
+
+  }
+
+  catch (error) {
+
+    console.error(
+      "GitHub projects error:",
+      error
+    );
+
+
+    if (projectsLoading) {
+      projectsLoading.style.display = "none";
+    }
+
+
+    if (projectsError) {
+      projectsError.style.display = "block";
+    }
+
+  }
+}
+
+
+/* ========================================
+   Load Projects When Modal Opens
+======================================== */
+
+if (projectsModal) {
+
+  projectsModal.addEventListener(
+    "show.bs.modal",
+    loadGithubProjects
+  );
+
+}
+
+
+/* ========================================
+   Project Filters
+======================================== */
+
+const projectFilters =
+  document.querySelectorAll(
+    ".project-filter"
+  );
+
+
+projectFilters.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    projectFilters.forEach((filterButton) => {
+      filterButton.classList.remove("active");
+    });
+
+
+    button.classList.add("active");
+
+
+    const selectedFilter =
+      button.dataset.filter;
+
+
+    renderProjects(selectedFilter);
+
+  });
+
 });
+
+/* ========================================
+   Photography Lightbox
+======================================== */
+
+const galleryPhotos =
+  document.querySelectorAll(".gallery-photo");
+
+const photoLightbox =
+  document.getElementById("photoLightbox");
+
+const photoLightboxImage =
+  document.getElementById("photoLightboxImage");
+
+const photoLightboxClose =
+  document.getElementById("photoLightboxClose");
+
+const photoPrevious =
+  document.getElementById("photoPrevious");
+
+const photoNext =
+  document.getElementById("photoNext");
+
+
+const photographyImages =
+  [...galleryPhotos].map((photo) =>
+    photo.dataset.photo
+  );
+
+
+let currentPhotoIndex = 0;
+
+
+function showPhoto(index) {
+
+  if (
+    !photoLightbox ||
+    !photoLightboxImage ||
+    photographyImages.length === 0
+  ) {
+    return;
+  }
+
+
+  currentPhotoIndex =
+    (
+      index +
+      photographyImages.length
+    ) %
+    photographyImages.length;
+
+
+  photoLightboxImage.src =
+    photographyImages[currentPhotoIndex];
+
+
+  photoLightbox.classList.add("active");
+
+  photoLightbox.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+
+function closePhotoLightbox() {
+
+  photoLightbox?.classList.remove("active");
+
+  photoLightbox?.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+
+  document.body.style.overflow = "";
+}
+
+
+galleryPhotos.forEach(
+  (photo, index) => {
+
+    photo.addEventListener(
+      "click",
+      () => showPhoto(index)
+    );
+
+  }
+);
+
+
+photoPrevious?.addEventListener(
+  "click",
+  () => showPhoto(currentPhotoIndex - 1)
+);
+
+
+photoNext?.addEventListener(
+  "click",
+  () => showPhoto(currentPhotoIndex + 1)
+);
+
+
+photoLightboxClose?.addEventListener(
+  "click",
+  closePhotoLightbox
+);
+
+
+photoLightbox?.addEventListener(
+  "click",
+  (event) => {
+
+    if (event.target === photoLightbox) {
+      closePhotoLightbox();
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      !photoLightbox?.classList.contains("active")
+    ) {
+      return;
+    }
+
+
+    if (event.key === "Escape") {
+      closePhotoLightbox();
+    }
+
+
+    if (event.key === "ArrowLeft") {
+      showPhoto(currentPhotoIndex - 1);
+    }
+
+
+    if (event.key === "ArrowRight") {
+      showPhoto(currentPhotoIndex + 1);
+    }
+
+  }
+);
+
+/* ========================================
+   Automatic Footer Year
+======================================== */
+
+const currentYear =
+  document.getElementById("currentYear");
+
+if (currentYear) {
+  currentYear.textContent =
+    new Date().getFullYear();
+}
+
+
+/* ========================================
+   Contact Form
+   Temporary Front-End Behaviour
+======================================== */
+
+const contactForm =
+  document.getElementById("contactForm");
+
+
+contactForm?.addEventListener(
+  "submit",
+  function (event) {
+
+    event.preventDefault();
+
+
+    const name =
+      document
+        .getElementById("name")
+        ?.value
+        .trim();
+
+    const email =
+      document
+        .getElementById("email")
+        ?.value
+        .trim();
+
+    const message =
+      document
+        .getElementById("message")
+        ?.value
+        .trim();
+
+    const status =
+      document.getElementById("formStatus");
+
+
+    if (!status) {
+      return;
+    }
+
+
+    if (
+      name &&
+      email &&
+      message
+    ) {
+
+      status.textContent =
+        "Thank you for your message!";
+
+      status.style.color =
+        "green";
+
+      this.reset();
+
+    }
+
+    else {
+
+      status.textContent =
+        "Please fill in all fields.";
+
+      status.style.color =
+        "red";
+
+    }
+
+  }
+);
