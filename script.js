@@ -17,43 +17,55 @@ window.addEventListener("scroll", () => {
    Active Nav Link on Scroll
 ======================================== */
 
+
+// const sections = [
+//   "about",
+//   "expertise",
+//   "research",
+//   "projects",
+//   "experience",
+//   "education",
+//   "beyond-code",
+//   "contact"
+// ];
+
+/* ========================================
+   Active Navbar Link
+======================================== */
+
 const navLinks = document.querySelectorAll(".smart-navbar .nav-link");
 
-const sections = [
-  "about",
-  "expertise",
-  "projects",
-  "research",
-  "experience",
-  "education",
-  "beyond-code",
-  "contact"
-];
+const observedSections =
+  document.querySelectorAll(
+    "#about, #expertise, #research, #projects, #experience, #education, #beyond-code, #contact"
+  );
 
-window.addEventListener("scroll", () => {
-  let currentSection = "";
 
-  sections.forEach((sectionId) => {
-    const section = document.getElementById(sectionId);
-
-    if (!section) {
-      return;
-    }
-
-    const sectionTop = section.offsetTop - 140;
-
-    if (window.scrollY >= sectionTop) {
-      currentSection = sectionId;
-    }
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === `#${currentSection}`) {
-      link.classList.add("active");
-    }
-  });
+const observerOptions = {root: null, rootMargin:"-35% 0px -55% 0px", threshold: 0};
+const sectionObserver =
+  new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const sectionId =
+          entry.target.id;
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (
+            link.getAttribute("href") ===
+            `#${sectionId}`
+          ) {
+            link.classList.add("active");
+          }
+        });
+      });
+    },
+    observerOptions
+  );
+observedSections.forEach((section) => {
+  sectionObserver.observe(section);
 });
 
 
@@ -693,8 +705,11 @@ function closePhotoLightbox() {
     "true"
   );
 
-
-  document.body.style.overflow = "";
+  if (document.querySelector(".modal.show")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 }
 
 

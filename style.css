@@ -20,10 +20,28 @@ body {
 }
 
 section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 90px;
+  position: relative;
 }
 
-a {
+section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: min(1100px, calc(100% - 40px));
+  height: 1px;
+  transform: translateX(-50%);
+  background: rgba(120, 140, 165, 0.08);
+}
+
+section > .container {
+  width: 100%;
+}
+
+
+
+a{
   text-decoration: none;
 }
 
@@ -32,23 +50,35 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #66e5f3;
+  outline-offset: 4px;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
 
 /* ========================================
    Shared Section Elements
 ======================================== */
 
 .section-kicker {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 
   color: #0b91a7;
 
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
 
-  letter-spacing: 0.18rem;
+  letter-spacing: 0.13rem;
   text-transform: uppercase;
 }
-
 
 /* ========================================
    Smart Navbar
@@ -460,12 +490,8 @@ a {
 ======================================== */
 
 .about-section {
-  position: relative;
-
   padding: 120px 0;
-
   background: #f7f9fc;
-
   color: #0d1726;
 }
 
@@ -3362,10 +3388,13 @@ a {
 
   /* Sections */
 
-  .about-section,
   .expertise-section,
   .research-section,
-  .projects-section {
+  .projects-section,
+  .experience-section,
+  .education-section,
+  .beyond-section,
+  .contact-section {
     padding: 90px 0;
   }
 
@@ -3468,7 +3497,11 @@ a {
   .about-section,
   .expertise-section,
   .research-section,
-  .projects-section {
+  .projects-section,
+  .experience-section,
+  .education-section,
+  .beyond-section,
+  .contact-section {
     padding: 75px 20px;
   }
 
@@ -4189,6 +4222,10 @@ a {
 
 }
 
+#contact::after {
+  display: none;
+}
+
 /* ========================================
    Footer
 ======================================== */
@@ -4410,6 +4447,60 @@ a {
   .footer-socials a {
     width: 36px;
     height: 36px;
+  }
+
+}
+
+/* ========================================
+   Loading State Utility
+======================================== */
+
+.loading-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #7f8da0;
+
+  font-size: 0.85rem;
+}
+
+.loading-text::after {
+  content: "";
+
+  width: 14px;
+  height: 14px;
+
+  border: 2px solid rgba(102, 229, 243, 0.2);
+  border-top-color: #66e5f3;
+  border-radius: 50%;
+
+  animation: loadingSpin 0.8s linear infinite;
+}
+
+@keyframes loadingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ========================================
+   Reduced Motion Accessibility
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
 }
