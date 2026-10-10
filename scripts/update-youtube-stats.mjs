@@ -22,14 +22,11 @@ async function updateYouTubeStats() {
   const html = await response.text();
 
 
-  const subscriberMatch =
-    html.match(/([0-9,.]+[KMB]?) subscribers/i);
-
-  const videoMatch =
-    html.match(/([0-9,]+) videos/i);
-
-  const viewsMatch =
-    html.match(/([0-9,]+) views/i);
+  const subscriberMatch = html.match(/"subscriberCountText":\{"simpleText":"([^"]+) subscribers"\}/i);
+  
+  const videoMatch = html.match(/"videoCountText":\{"runs":\[\{"text":"([^"]+)"\}\]\}/i);
+  
+  const viewsMatch = html.match(/"viewCountText":\{"simpleText":"([^"]+) views"\}/i);
 
 
   if (
