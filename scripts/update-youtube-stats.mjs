@@ -21,6 +21,20 @@ async function updateYouTubeStats() {
 
   const html = await response.text();
 
+  const debugMatches = [
+    ...html.matchAll(
+      /.{0,120}[0-9,.]+(?:K|M|B)?\s+(?:subscribers|videos|views).{0,120}/gi
+    )
+  ];
+  
+  console.log("=== POSSIBLE YOUTUBE STATS ===");
+  
+  debugMatches.forEach((match, index) => {
+    console.log(`MATCH ${index + 1}:`);
+    console.log(match[0]);
+    console.log("-------------------------");
+  });
+
 
   const subscriberMatch = html.match(/"subscriberCountText":\{"simpleText":"([^"]+) subscribers"\}/i);
   
